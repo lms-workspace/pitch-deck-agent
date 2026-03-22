@@ -1,0 +1,66 @@
+{
+    "name": "10_slide_narrative_pitch",
+    "description": "Standard 10-slide narrative pitch deck for film/TV/streaming",
+    "slides": [
+        {
+            "number": 1,
+            "type": "title",
+            "purpose": "Title card — project name, logline, genre/tone",
+            "fields": ["title", "logline", "genre", "tone"]
+        },
+        {
+            "number": 2,
+            "type": "logline",
+            "purpose": "The hook — why this story, why now",
+            "fields": ["logline", "hook"]
+        },
+        {
+            "number": 3,
+            "type": "genre_tone",
+            "purpose": "Genre positioning, tone, themes",
+            "fields": ["genre", "tone", "themes", "visual_style"]
+        },
+        {
+            "number": 4,
+            "type": "characters",
+            "purpose": "Character introductions and dynamics",
+            "fields": ["protagonist", "antagonist", "characters"]
+        },
+        {
+            "number": 5,
+            "type": "setting",
+            "purpose": "World-building — where and when",
+            "fields": ["setting", "time_period", "visual_style"]
+        },
+        {
+            "number": 6,
+            "type": "plot",
+            "purpose": "Story arc — setup, confrontation, resolution",
+            "fields": ["plot_summary", "plot_arc"]
+        },
+        {
+            "number": 7,
+            "type": "conflict",
+            "purpose": "Central dramatic question",
+            "fields": ["conflict"]
+        },
+        {
+            "number": 8,
+            "type": "key_scenes",
+            "purpose": "Signature moments that sell the project",
+            "fields": ["key_scenes"]
+        },
+        {
+            "number": 9,
+            "type": "audience_comps",
+            "purpose": "Target audience and comparable titles",
+            "fields": ["target_audience", "comparable_titles"]
+        },
+        {
+            "number": 10,
+            "type": "closing",
+            "purpose": "Close with title + CTA",
+            "fields": ["title", "logline"]
+        }
+    ]
+}

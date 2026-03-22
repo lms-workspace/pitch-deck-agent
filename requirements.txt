@@ -1,0 +1,29 @@
+# Core
+google-generativeai>=0.8.0
+anthropic>=0.39.0
+pydantic>=2.0
+
+# Document Parsing
+pymupdf>=1.24.0          # PDF extraction (fitz)
+Pillow>=10.0.0
+python-magic>=0.4.27     # MIME type detection
+
+# Google Slides
+google-api-python-client>=2.100.0
+google-auth>=2.23.0
+google-auth-oauthlib>=1.1.0
+
+# PowerPoint (Phase 2)
+python-pptx>=0.6.23
+
+# Video (Phase 2)
+# openai-whisper>=20231117
+# ffmpeg-python>=0.2.0
+
+# Frontend
+gradio>=4.40.0
+
+# Utils
+python-dotenv>=1.0.0
+loguru>=0.7.0
+tenacity>=8.2.0          # Retry logic for API calls
