@@ -30,8 +30,9 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def stamp_markdown(path: Path, wiki_root: Path, commit: str) -> None:
+def stamp_markdown(path: Path, wiki_root: Path, commit: str) -> int:
     text = path.read_text(errors="strict")
+    unresolved_links = 0
     text = text.replace(
         "canonical source-grounded code map",
         "derived, source-grounded code map",
@@ -56,7 +57,9 @@ def stamp_markdown(path: Path, wiki_root: Path, commit: str) -> None:
         if destination.is_dir():
             destination = destination / "index.md"
         if not destination.exists():
-            return match.group(0)
+            nonlocal unresolved_links
+            unresolved_links += 1
+            return f"{label} (unresolved generated link: `{target}{anchor}`)"
         relative = os.path.relpath(destination, path.parent.resolve())
         return f"[{label}]({Path(relative).as_posix()}{anchor})"
 
@@ -75,6 +78,7 @@ def stamp_markdown(path: Path, wiki_root: Path, commit: str) -> None:
         block = "\n".join(f"{key}: {value}" for key, value in fields.items())
         text = f"---\ntype: derived-code-map\n{block}\n---\n\n{text}"
     path.write_text(text)
+    return unresolved_links
 
 
 def validate_links(wiki_root: Path) -> list[str]:
@@ -133,8 +137,9 @@ def main() -> None:
         shutil.rmtree(output)
     wiki = output / "wiki"
     shutil.copytree(source, wiki)
+    repaired_links = 0
     for path in wiki.rglob("*.md"):
-        stamp_markdown(path, wiki, args.commit)
+        repaired_links += stamp_markdown(path, wiki, args.commit)
     broken = validate_links(wiki)
     if broken:
         raise SystemExit("generated output has broken internal links: " + "; ".join(broken))
@@ -165,6 +170,7 @@ def main() -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "wiki_files": len(markdown),
         "mermaid_blocks": mermaid_blocks,
+        "repaired_unresolved_generated_links": repaired_links,
         "manifest": manifest,
     }
     (output / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
