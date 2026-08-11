@@ -1,0 +1,30 @@
+{
+  "schema": "lms-derived-code-map-v1",
+  "type": "derived-code-map",
+  "authority": "derived-noncanonical",
+  "canonical": false,
+  "xtrace_ingest": "deny",
+  "repository": "lms-workspace/pitch-deck-agent",
+  "project": "pitch-deck-agent",
+  "canonical_vault_owner": "projects/pitch-deck-agent",
+  "source_ref": "main",
+  "source_commit": "d3425ef2e5aa00f56c0872ee913567d856569618",
+  "remote": "https://github.com/lms-workspace/pitch-deck-agent.git",
+  "generation_timestamp": "2026-08-11T19:34:24.964652+00:00",
+  "generator": "openwiki",
+  "generated_by": "openwiki@0.3.1",
+  "openwiki_version": "0.3.1",
+  "model_provider": "openai-chatgpt",
+  "model": "gpt-5.6-terra",
+  "wiki_files": 18,
+  "mermaid_blocks": 3,
+  "output_sha256": "55e6e06c3b67523a77342361f3e5518b935082f494193db48bb7421fe2b3dcf3",
+  "constraints": [
+    "disposable detached worktree",
+    "code mode only",
+    "copied only openwiki/",
+    "telemetry and tracing disabled",
+    "no connectors or schedules",
+    "no canonical requirement, handoff, task, or source overwrite"
+  ]
+}
